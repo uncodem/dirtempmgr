@@ -1,5 +1,5 @@
 # dirtempmgr
-A simple bash script for template folders    
+A simple bash script i wrote to manage my template folders    
 
 
 ### Adding Templates
