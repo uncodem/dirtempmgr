@@ -18,19 +18,19 @@ then
 fi
 
 COMMAND=$1
-PROJ_NAME=$([ "$#" == 2 ] && echo $2 || echo $1)
+PROJ_NAME=$([ "$#" -eq 2 ] && echo $2 || echo $1 )
 
-if [ $COMMAND == "list" ]; then
+if [ $COMMAND = "list" ]; then
 	printf "Listing Templates...\n"
-	for entry in "$PROJ_TEMP_PATH"/*
+	for entry in "$PROJ_TEMP_PATH/*"
 	do
 		echo $( trunc_path "$entry" -2 )
 	done
-elif [ $COMMAND == "help" ]; then
+elif [ $COMMAND = "help" ]; then
 	printf "dirtempmgr: A simple shell script that helps manage template folders\n"
 	printf "Written by uncodem(2022)\n\n"	
 	display_usage
-elif [ $COMMAND == "export" ]; then
+elif [ $COMMAND = "export" ]; then
 	mkdir $PROJ_TEMP_PATH/$PROJ_NAME
 	cp ./* $PROJ_TEMP_PATH/$PROJ_NAME
 elif [ $COMMAND = "paths"  ]; then
