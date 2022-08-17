@@ -32,14 +32,14 @@ elif [ $COMMAND = "help" ]; then
 	display_usage
 elif [ $COMMAND = "export" ]; then
 	mkdir $PROJ_TEMP_PATH/$PROJ_NAME
-	cp ./* $PROJ_TEMP_PATH/$PROJ_NAME
+	cp -r ./* $PROJ_TEMP_PATH/$PROJ_NAME
 elif [ $COMMAND = "paths"  ]; then
 	printf "Using (%s) as base path\n\n" $SRC_PATH
 	printf "Using (%s) as template path\n\n" $PROJ_TEMP_PATH
 else
 	if [ -d $PROJ_TEMP_PATH/$COMMAND ]; then
 		mkdir $PROJ_NAME
-		cp $PROJ_TEMP_PATH/$COMMAND/* $PROJ_NAME
+		cp -r $PROJ_TEMP_PATH/$COMMAND/* $PROJ_NAME
 	else
 		printf "Template ' %s ' not found\n" $COMMAND >&2
 		exit 1
