@@ -22,7 +22,7 @@ PROJ_NAME=$([ "$#" -eq 2 ] && echo $2 || echo $1 )
 
 if [ $COMMAND = "list" ]; then
 	printf "Listing Templates...\n"
-	for entry in "$PROJ_TEMP_PATH/*"
+	for entry in "$PROJ_TEMP_PATH"/*
 	do
 		echo $( trunc_path "$entry" -2 )
 	done
