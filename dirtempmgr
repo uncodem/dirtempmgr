@@ -8,7 +8,7 @@ trunc_path() {
 }
 
 display_usage() {
-	printf "Usage : %s <template_name | list | help | export | paths> [param]\n" $( trunc_path $0 -2)
+	printf "Usage : %s <template_name | list | help | export | paths | pathto> [param]\n" $( trunc_path $0 -2)
 }
 
 if [ $# -ne 1 ] && [ $# -ne 2 ]  
@@ -36,6 +36,13 @@ elif [ $COMMAND = "export" ]; then
 elif [ $COMMAND = "paths"  ]; then
 	printf "Using (%s) as base path\n\n" $SRC_PATH
 	printf "Using (%s) as template path\n\n" $PROJ_TEMP_PATH
+elif [ $COMMAND = "pathto" ]; then
+	if [ $COMMAND = $PROJ_NAME ]; then 
+		printf "Template name must be provided...\n" >&2
+		exit 1
+	else
+		echo $PROJ_TEMP_PATH/$PROJ_NAME
+	fi
 else
 	if [ -d $PROJ_TEMP_PATH/$COMMAND ]; then
 		mkdir $PROJ_NAME
