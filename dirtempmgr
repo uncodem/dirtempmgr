@@ -45,7 +45,7 @@ elif [ $COMMAND = "pathto" ]; then
 	fi
 else
 	if [ -d $PROJ_TEMP_PATH/$COMMAND ]; then
-		mkdir $PROJ_NAME
+		mkdir -p $PROJ_NAME
 		cp -r $PROJ_TEMP_PATH/$COMMAND/* $PROJ_NAME
 	else
 		printf "Template ' %s ' not found\n" $COMMAND >&2
